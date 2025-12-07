@@ -1,0 +1,237 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-top: 60px;
+}
+
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    border: 5px solid #acabab;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+h3 {
+    font-size: 1.1rem;
+    margin-top: 0px;
+}
+
+p {
+    color: #555;
+}
+
+.btn {
+    width: 300px;
+    height: 60px;
+    /* tinggi fix biar gampang center vertikal */
+    margin: 20px auto;
+    margin-top: 20px;
+    background: #edc879;
+    color: white;
+    text-decoration: none;
+    border-radius: 60px;
+
+    /* 🔥 Center text horizontal & vertikal */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 🔥 Teks lebih besar & bold */
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* 📌 Animasi melayang */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* 📌 Variasi gerakan untuk biar tidak sama semua */
+@keyframes float2 {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(12px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes float3 {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* ✨ Glow / Cahaya berdenyut */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 230, 180, 0.4),
+            0 0 25px rgba(255, 230, 180, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 18px rgba(255, 230, 180, 0.6),
+            0 0 35px rgba(255, 230, 180, 0.4);
+    }
+
+    100% {
+        box-shadow: 0 0 10px rgba(255, 230, 180, 0.4),
+            0 0 25px rgba(255, 230, 180, 0.2);
+    }
+}
+
+/* ✨ Glow biru */
+@keyframes glowBlue {
+    0% {
+        box-shadow: 0 0 10px rgba(110, 160, 210, 0.5),
+            0 0 25px rgba(110, 160, 210, 0.25);
+    }
+
+    50% {
+        box-shadow: 0 0 18px rgba(110, 160, 210, 0.7),
+            0 0 35px rgba(110, 160, 210, 0.45);
+    }
+
+    100% {
+        box-shadow: 0 0 10px rgba(110, 160, 210, 0.5),
+            0 0 25px rgba(110, 160, 210, 0.25);
+    }
+}
+
+/* 🔵 .bolabesar pertama */
+.bolabesar {
+    width: 152px;
+    height: 152px;
+    margin-left: 310px;
+    background: #F2E4C5;
+    padding: 12px;
+    border-radius: 100%;
+    top: -550px;
+    position: relative;
+
+    /* Mask tetap */
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 30%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+
+    /* ✨ Animasi */
+    animation: float 4s ease-in-out infinite, glow 3s ease-in-out infinite;
+}
+
+/* 🟡 .bolabesar kedua */
+.bolabesar2 {
+    width: 152px;
+    height: 152px;
+    margin-left: -40px;
+    background: #F2E4C5;
+    padding: 12px;
+    border-radius: 100%;
+    top: -200px;
+    position: relative;
+
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 30%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%);
+
+    /* ✨ Animasi berbeda */
+    animation: float2 5s ease-in-out infinite, glow 3.5s ease-in-out infinite;
+}
+
+/* 🔵 .bolabesar ketiga (biru) */
+.bolabesar3 {
+    width: 152px;
+    height: 152px;
+    margin-left: 230px;
+    background: #98B6D3;
+    padding: 12px;
+    border-radius: 100%;
+    top: -220px;
+    position: relative;
+
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 30%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%);
+
+    /* ✨ Glow biru + animasi melayang */
+    animation: float3 4.5s ease-in-out infinite, glowBlue 3.2s ease-in-out infinite;
+}
+
+/* ⚪ Inner bola */
+.bola {
+    width: 72px;
+    height: 72px;
+    background: #f5f5f5;
+    padding: 6px;
+    border-radius: 100%;
+    margin-left: 45px;
+    margin-top: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ⚡ Petir */
+.petir {
+    width: 72px;
+    height: 72px;
+    background-color: #F2E4C5;
+    margin: auto;
+    clip-path: polygon(60% 0%, 60% 0%, 55% 35%, 80% 35%, 45% 100%, 50% 60%, 25% 60%);
+
+    /* opsional animasi */
+    animation: glow 2.5s ease-in-out infinite;
+}
+
+.petir2 {
+    width: 72px;
+    height: 72px;
+    background-color: #98B6D3;
+    margin: auto;
+    clip-path: polygon(60% 0%, 60% 0%, 55% 35%, 80% 35%, 45% 100%, 50% 60%, 25% 60%);
+
+    animation: glowBlue 2.8s ease-in-out infinite;
+}
+
+.bolabesar,
+.bolabesar2,
+.bolabesar3 {
+    position: relative;
+    overflow: visible;
+}
