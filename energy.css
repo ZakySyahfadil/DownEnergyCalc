@@ -1,70 +1,179 @@
+/* ============================= */
+/* GLOBAL STYLE */
+/* ============================= */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f8f9fa;
+    background: #f3f4f6;
     display: flex;
     justify-content: center;
-    height: 100vh;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .container {
     text-align: center;
     width: 90%;
-    max-width: 400px;
+    max-width: 420px;
+    padding: 20px 0;
+    position: relative;
+    z-index: 10;
 }
 
 h1 {
-    font-size: 1.5rem;
-    margin-top: 30px;
-}
-
-.logo {
-    width: 100px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    border: 5px solid #acabab;
-    border-radius: 20px;
-    padding: 5px;
+    font-size: 1.9rem;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 h3 {
     font-size: 1.1rem;
-    margin-top: 0px;
+    font-weight: normal;
+    margin-top: -5px;
+    color: #444;
 }
 
-p {
+.desc {
     color: #555;
+    font-size: 0.95rem;
+    padding: 0 5px;
 }
+
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border: 5px solid #acabab;
+    border-radius: 25px;
+    padding: 5px;
+}
+
+/* ============================= */
+/* BUTTON */
+/* ============================= */
 
 .btn {
-    width: 300px;
+    width: 80%;
+    max-width: 310px;
     height: 60px;
-    /* tinggi fix biar gampang center vertikal */
-    margin: 20px auto;
-    margin-top: 20px;
+    margin: 25px auto;
     background: #edc879;
     color: white;
     text-decoration: none;
     border-radius: 60px;
 
-    /* 🔥 Center text horizontal & vertikal */
     display: flex;
     align-items: center;
     justify-content: center;
 
-    /* 🔥 Teks lebih besar & bold */
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+    transition: transform .2s;
 }
 
-/* 📌 Animasi melayang */
+.btn:hover {
+    transform: scale(1.04);
+}
+
+/* ============================= */
+/* FLOATING BACKGROUND ELEMENTS */
+/* ============================= */
+
+.floating-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Bola default */
+.bolabesar,
+.bolabesar2,
+.bolabesar3 {
+    width: 160px;
+    height: 160px;
+    padding: 12px;
+    border-radius: 100%;
+    position: absolute;
+    opacity: 0.8;
+}
+
+/* Bola 1 */
+.bolabesar {
+    background: #F2E4C5;
+    left: 70%;
+    top: -20px;
+    animation: float 4s ease-in-out infinite, glow 3s ease-in-out infinite;
+}
+
+/* Bola 2 */
+.bolabesar2 {
+    background: #F2E4C5;
+    left: -40px;
+    top: 45%;
+    animation: float2 5s ease-in-out infinite, glow 3.5s ease-in-out infinite;
+}
+
+/* Bola 3 biru */
+.bolabesar3 {
+    background: #98B6D3;
+    right: -30px;
+    top: 70%;
+    animation: float3 4.5s ease-in-out infinite, glowBlue 3s ease-in-out infinite;
+}
+
+/* Inner bola */
+.bola {
+    width: 72px;
+    height: 72px;
+    background: #f5f5f5;
+    padding: 6px;
+    border-radius: 100%;
+    margin: auto;
+    margin-top: 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ⚡ Petir */
+.petir,
+.petir2 {
+    width: 72px;
+    height: 72px;
+    margin: auto;
+    clip-path: polygon(60% 0%, 55% 35%, 80% 35%, 45% 100%, 50% 60%, 25% 60%);
+}
+
+.petir {
+    background: #F2E4C5;
+    animation: glow 2.5s ease-in-out infinite;
+}
+
+.petir2 {
+    background: #98B6D3;
+    animation: glowBlue 2.8s ease-in-out infinite;
+}
+
+/* ============================= */
+/* ANIMATIONS */
+/* ============================= */
+
 @keyframes float {
     0% {
         transform: translateY(0px);
     }
 
     50% {
-        transform: translateY(-15px);
+        transform: translateY(-18px);
     }
 
     100% {
@@ -72,7 +181,6 @@ p {
     }
 }
 
-/* 📌 Variasi gerakan untuk biar tidak sama semua */
 @keyframes float2 {
     0% {
         transform: translateY(0px);
@@ -101,137 +209,64 @@ p {
     }
 }
 
-/* ✨ Glow / Cahaya berdenyut */
 @keyframes glow {
     0% {
-        box-shadow: 0 0 10px rgba(255, 230, 180, 0.4),
-            0 0 25px rgba(255, 230, 180, 0.2);
+        box-shadow: 0 0 10px rgba(255, 230, 180, 0.4);
     }
 
     50% {
-        box-shadow: 0 0 18px rgba(255, 230, 180, 0.6),
-            0 0 35px rgba(255, 230, 180, 0.4);
+        box-shadow: 0 0 18px rgba(255, 230, 180, 0.7);
     }
 
     100% {
-        box-shadow: 0 0 10px rgba(255, 230, 180, 0.4),
-            0 0 25px rgba(255, 230, 180, 0.2);
+        box-shadow: 0 0 10px rgba(255, 230, 180, 0.4);
     }
 }
 
-/* ✨ Glow biru */
 @keyframes glowBlue {
     0% {
-        box-shadow: 0 0 10px rgba(110, 160, 210, 0.5),
-            0 0 25px rgba(110, 160, 210, 0.25);
+        box-shadow: 0 0 10px rgba(110, 160, 210, 0.5);
     }
 
     50% {
-        box-shadow: 0 0 18px rgba(110, 160, 210, 0.7),
-            0 0 35px rgba(110, 160, 210, 0.45);
+        box-shadow: 0 0 18px rgba(110, 160, 210, 0.7);
     }
 
     100% {
-        box-shadow: 0 0 10px rgba(110, 160, 210, 0.5),
-            0 0 25px rgba(110, 160, 210, 0.25);
+        box-shadow: 0 0 10px rgba(110, 160, 210, 0.5);
     }
 }
 
-/* 🔵 .bolabesar pertama */
-.bolabesar {
-    width: 152px;
-    height: 152px;
-    margin-left: 310px;
-    background: #F2E4C5;
-    padding: 12px;
-    border-radius: 100%;
-    top: -490px;
-    position: relative;
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
 
-    /* Mask tetap */
-    mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 30%);
-    -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+    }
 
-    /* ✨ Animasi */
-    animation: float 4s ease-in-out infinite, glow 3s ease-in-out infinite;
-}
+    h3 {
+        font-size: 1rem;
+    }
 
-/* 🟡 .bolabesar kedua */
-.bolabesar2 {
-    width: 152px;
-    height: 152px;
-    margin-left: -40px;
-    background: #F2E4C5;
-    padding: 12px;
-    border-radius: 100%;
-    top: -200px;
-    position: relative;
+    .logo {
+        width: 100px;
+    }
 
-    mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 30%);
-    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%);
+    /* Geser posisi bola supaya tetap estetik */
+    .bolabesar {
+        left: 55%;
+        top: -30px;
+    }
 
-    /* ✨ Animasi berbeda */
-    animation: float2 5s ease-in-out infinite, glow 3.5s ease-in-out infinite;
-}
+    .bolabesar2 {
+        left: -50px;
+        top: 48%;
+    }
 
-/* 🔵 .bolabesar ketiga (biru) */
-.bolabesar3 {
-    width: 152px;
-    height: 152px;
-    margin-left: 230px;
-    background: #98B6D3;
-    padding: 12px;
-    border-radius: 100%;
-    top: -220px;
-    position: relative;
-
-    mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 30%);
-    -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%);
-
-    /* ✨ Glow biru + animasi melayang */
-    animation: float3 4.5s ease-in-out infinite, glowBlue 3.2s ease-in-out infinite;
-}
-
-/* ⚪ Inner bola */
-.bola {
-    width: 72px;
-    height: 72px;
-    background: #f5f5f5;
-    padding: 6px;
-    border-radius: 100%;
-    margin-left: 45px;
-    margin-top: 12px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* ⚡ Petir */
-.petir {
-    width: 72px;
-    height: 72px;
-    background-color: #F2E4C5;
-    margin: auto;
-    clip-path: polygon(60% 0%, 60% 0%, 55% 35%, 80% 35%, 45% 100%, 50% 60%, 25% 60%);
-
-    /* opsional animasi */
-    animation: glow 2.5s ease-in-out infinite;
-}
-
-.petir2 {
-    width: 72px;
-    height: 72px;
-    background-color: #98B6D3;
-    margin: auto;
-    clip-path: polygon(60% 0%, 60% 0%, 55% 35%, 80% 35%, 45% 100%, 50% 60%, 25% 60%);
-
-    animation: glowBlue 2.8s ease-in-out infinite;
-}
-
-.bolabesar,
-.bolabesar2,
-.bolabesar3 {
-    position: relative;
-    overflow: visible;
+    .bolabesar3 {
+        right: -40px;
+        top: 75%;
+    }
 }
