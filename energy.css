@@ -6,33 +6,24 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f3f4f6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     overflow-x: hidden;
 }
 
+/* Container tetap center, tapi TIDAK pakai flex seluruh body */
 .container {
     text-align: center;
     width: 90%;
     max-width: 420px;
-    padding: 20px 0;
+    padding: 30px 0 80px 0;
+    margin: 0 auto;
     position: relative;
     z-index: 10;
 }
 
 h1 {
     font-size: 1.9rem;
-    margin-bottom: 5px;
-    margin-top: 5px;
-}
-
-h3 {
-    font-size: 1.1rem;
-    font-weight: normal;
-    margin-top: -5px;
-    color: #444;
+    margin-bottom: 25px;
+    margin-top: 55px;
 }
 
 .desc {
@@ -79,6 +70,25 @@ h3 {
     transform: scale(1.04);
 }
 
+.app-info {
+    text-align: center;
+    font-size: 11px;
+    color: #555;
+    margin-top: -15px;
+    opacity: 0.85;
+}
+
+.hero * {
+    position: relative;
+    z-index: 20;
+}
+
+.hero {
+    background: linear-gradient(#f3f4f6, #ffffff);
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+}
+
 /* ============================= */
 /* FLOATING BACKGROUND ELEMENTS */
 /* ============================= */
@@ -105,27 +115,30 @@ h3 {
     opacity: 0.8;
 }
 
-/* Bola 1 */
+/* Bola 1 – pojok kanan atas */
 .bolabesar {
     background: #F2E4C5;
-    left: 70%;
-    top: -20px;
+    left: 68%;
+    top: -60px;
+    z-index: 1;
     animation: float 4s ease-in-out infinite, glow 3s ease-in-out infinite;
 }
 
-/* Bola 2 */
+/* Bola 2 – kiri agak bawah */
 .bolabesar2 {
     background: #F2E4C5;
-    left: -40px;
-    top: 45%;
+    left: -50px;
+    top: 380px;
+    z-index: 1;
     animation: float2 5s ease-in-out infinite, glow 3.5s ease-in-out infinite;
 }
 
-/* Bola 3 biru */
+/* Bola 3 biru – kanan bawah */
 .bolabesar3 {
     background: #98B6D3;
-    right: -30px;
-    top: 70%;
+    right: -40px;
+    top: 600px;
+    z-index: 1;
     animation: float3 4.5s ease-in-out infinite, glowBlue 3s ease-in-out infinite;
 }
 
@@ -268,5 +281,72 @@ h3 {
     .bolabesar3 {
         right: -40px;
         top: 75%;
+    }
+}
+
+/* ======================= PREVIEW SECTION ======================= */
+.preview-section {
+    width: 100%;
+    margin-top: 120px;
+    /* dari 100px → 40px */
+    text-align: center;
+    padding-bottom: 60px;
+    position: relative;
+    z-index: 5;
+}
+
+
+.preview-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.preview-sub {
+    font-size: 0.95rem;
+    color: #666;
+    margin-top: -5px;
+    margin-bottom: 25px;
+}
+
+/* Grid screenshot */
+.screenshots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+    justify-items: center;
+}
+
+/* Setiap screenshot */
+.shot {
+    width: 100%;
+    max-width: 240px;
+    background: white;
+    padding: 12px;
+    border-radius: 18px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
+    transition: transform .25s ease;
+}
+
+.shot:hover {
+    transform: translateY(-6px);
+}
+
+.shot img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* Responsif untuk HP */
+@media screen and (max-width: 480px) {
+    .screenshots {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .shot {
+        max-width: 170px;
+        padding: 8px;
     }
 }
