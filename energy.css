@@ -282,7 +282,7 @@ h1 {
 
 .preview-section {
     width: 100%;
-    margin-top: 40px;
+    margin-top: 200px;
     /* Semakin dekat ke main UI */
     text-align: center;
     padding-bottom: 60px;
@@ -306,7 +306,7 @@ h1 {
 /* Grid screenshot */
 .screenshots {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     /* ✔ lebih kecil */
     gap: 15px;
     padding: 0 20px;
@@ -316,7 +316,7 @@ h1 {
 /* Screenshot card */
 .shot {
     width: 100%;
-    max-width: 150px;
+    max-width: 110px;
     /* ✔ mengecil agar muat 4 dalam 1 layar hp */
     background: white;
     padding: 8px;
