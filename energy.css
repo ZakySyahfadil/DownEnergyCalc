@@ -84,35 +84,27 @@ h1 {
     z-index: 20;
 }
 
-/* HERO tanpa background gradient */
 .hero {
     background: #ffffff !important;
-    /* ✔ putih */
+    position: relative;
+    z-index: 5;
 }
 
 /* ============================= */
 /* FLOATING BACKGROUND ELEMENTS */
 /* ============================= */
-
-.floating-bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
 .bolabesar,
 .bolabesar2,
-.bolabesar3 {
+.bolabesar3,
+.bolabesar4,
+.bolabesar5 {
     width: 160px;
     height: 160px;
     padding: 12px;
     border-radius: 100%;
     position: absolute;
     opacity: 0.8;
+    z-index: -10 !important;
 }
 
 /* Bola 1 – pojok kanan atas */
@@ -141,6 +133,24 @@ h1 {
     z-index: 1;
     animation: float3 4.5s ease-in-out infinite, glowBlue 3s ease-in-out infinite;
 }
+
+.bolabesar4 {
+    background: #F2E4C5;
+    left: -40px;
+    top: 800px;
+    z-index: -1;
+    animation: float2 5s ease-in-out infinite, glow 3s ease-in-out infinite;
+}
+
+.bolabesar5 {
+    background: #98B6D3;
+    right: -90px;
+    top: 1150px;
+    z-index: -1;
+    animation: float3 4.5s ease-in-out infinite, glowBlue 3s ease-in-out infinite;
+}
+
+
 
 .bola {
     width: 72px;
@@ -282,12 +292,11 @@ h1 {
 
 .preview-section {
     width: 100%;
-    margin-top: 200px;
-    /* Semakin dekat ke main UI */
+    margin-top: 300px;
     text-align: center;
     padding-bottom: 60px;
     position: relative;
-    z-index: 5;
+    z-index: 10;
 }
 
 .preview-title {
@@ -299,7 +308,7 @@ h1 {
 
 .preview-sub {
     font-size: 0.9rem;
-    color: #666;
+    color: #555;
     margin-bottom: 25px;
 }
 
@@ -307,10 +316,11 @@ h1 {
 .screenshots {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    /* ✔ lebih kecil */
+    position: relative;
     gap: 15px;
     padding: 0 20px;
     justify-items: center;
+    z-index: 0;
 }
 
 /* Screenshot card */
