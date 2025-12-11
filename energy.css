@@ -1,12 +1,13 @@
-/* ============================= */
-/* GLOBAL STYLE */
-/* ============================= */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #ffffff;
-    /* ✔ Background putih semua */
     overflow-x: hidden;
 }
 
@@ -149,8 +150,6 @@ h1 {
     z-index: -1;
     animation: float3 4.5s ease-in-out infinite, glowBlue 3s ease-in-out infinite;
 }
-
-
 
 .bola {
     width: 72px;
